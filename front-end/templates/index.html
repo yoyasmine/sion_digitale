@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sion Digitale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#fffff',
+            secondary: '#FF5722',
+          },
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-montserrat bg-primary">
+  <div class="container mx-auto p-5">
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm bg-white/30 hover:bg-white/80 shadow-sm">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-3">
+          <!-- Logo avec effet de profondeur -->
+          <div class="logo flex items-center">
+            <div class="logo-icon flex flex-col items-center transform hover:scale-105 transition-transform">
+              <img src="/static/images/logosiondigital-removebg-preview.png" alt="Logo Sion Digitale" class="h-28 mb-1 drop-shadow-lg">
+            </div>
+          </div>
+          
+          <!-- Navigation desktop - Style moderne et épuré -->
+          <nav class="hidden md:block">
+            <ul class="flex list-none space-x-1">
+              <li>
+                <a href="#accueil" class="text-lg font-medium text-gray-800 hover:text-indigo-600 transition-colors py-2 px-3 rounded-lg hover:bg-white/50">
+                  Accueil
+                </a>
+              </li>
+              <li>
+                <a href="#apropos" class="text-lg font-medium text-gray-800 hover:text-indigo-600 transition-colors py-2 px-3 rounded-lg hover:bg-white/50">
+                  À propos
+                </a>
+              </li>
+              <li>
+                <a href="#services" class="text-lg font-medium text-gray-800 hover:text-indigo-600 transition-colors py-2 px-3 rounded-lg hover:bg-white/50">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#portfolio" class="text-lg font-medium text-gray-800 hover:text-indigo-600 transition-colors py-2 px-3 rounded-lg hover:bg-white/50">
+                  Portfolio
+                </a>
+              </li>
+              <li class="ml-2">
+                <a href="#contact" class="text-lg font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-all py-2 px-5 rounded-full shadow-lg hover:shadow-indigo-300/50">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+          
+          <!-- Bouton menu mobile - Style moderne -->
+          <button class="md:hidden text-gray-700 focus:outline-none bg-white/50 rounded-full p-2 shadow-sm" id="menu-toggle" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Menu mobile - Style cohérent avec le thème -->
+      <div class="mobile-menu fixed top-0 left-0 w-4/5 h-full bg-white/95 backdrop-blur-md shadow-xl z-50 p-5 md:hidden hidden transform transition-transform duration-300 ease-in-out" id="mobile-menu">
+        <div class="flex justify-between items-center mb-8">
+          <div class="logo-icon flex flex-col items-center">
+            <img src="/static/images/logosiondigital-removebg-preview.png" alt="Logo Sion Digitale" class="h-24 mb-2 drop-shadow-md">
+            <div class="h-1 w-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-1"></div>
+            <div class="logo-text text-gray-700 font-bold uppercase text-xs tracking-wider">Sion Digitale</div>
+          </div>
+          <button id="close-menu" class="rounded-full p-1 bg-gray-100 hover:bg-gray-200 transition-colors" aria-label="Fermer le menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav>
+          <ul class="space-y-3">
+            <li>
+              <a href="#accueil" class="block text-lg font-medium text-gray-700 hover:text-indigo-600 transition-colors py-3 px-4 rounded-lg hover:bg-indigo-50">
+                Accueil
+              </a>
+            </li>
+            <li>
+              <a href="#apropos" class="block text-lg font-medium text-gray-700 hover:text-indigo-600 transition-colors py-3 px-4 rounded-lg hover:bg-indigo-50">
+                À propos
+              </a>
+            </li>
+            <li>
+              <a href="#services" class="block text-lg font-medium text-gray-700 hover:text-indigo-600 transition-colors py-3 px-4 rounded-lg hover:bg-indigo-50">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#portfolio" class="block text-lg font-medium text-gray-700 hover:text-indigo-600 transition-colors py-3 px-4 rounded-lg hover:bg-indigo-50">
+                Portfolio
+              </a>
+            </li>
+            <li class="mt-6">
+              <a href="#contact" class="block text-lg font-medium text-center text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-all py-3 px-4 rounded-full shadow-md">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+      <main>
+        <!-- Section Accueil -->
+        <section id="accueil" class="pt-32 pb-16 relative overflow-hidden">
+          <div class="bg-circle absolute w-72 h-72 bg-gradient-to-br from-yellow-400 to-orange-200 rounded-full left-[-100px] top-1/2 opacity-70 -z-10"></div>
+          
+          <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+              <div class="hero-content w-full md:w-1/2 mb-8 md:mb-0 md:pr-5">
+                <h1 class="text-4xl md:text-5xl text-gray-800 mb-5 font-bold">Bienvenue chez<br>Sion Digitale</h1>
+                <p class="subheading text-xl md:text-2xl text-[#0727D0] mb-8">Transformez vos idées<br>en réalité digitale !</p>
+                <a href="#contact" class="cta-button inline-block bg-blue-600 text-white py-3 px-6 rounded-full font-bold mt-5 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Demander un devis</a>
+              </div>
+              
+              <div class="hero-images w-full md:w-1/2 flex justify-between">
+                <div class="main-image w-3/4 h-64 md:h-96 bg-[#0727D0] bg-opacity-50 rounded-lg bg-cover" style="background-image: url('/static/images/imgsd.jpg');"></div>
+                <div class="side-image w-1/5 h-64 md:h-96 bg-gray-300 rounded-lg bg-cover" style="background-image: url('/static/images/im.jpg');"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+        <!-- Section Témoignages -->
+        <section class="testimonials py-16 bg-gray-50">
+          <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center text-gray-800 mb-12">CE QUE DISENT NOS CLIENTS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+                <p class="testimonial-content text-gray-600 mb-6">"Sion Digitale a complètement transformé notre présence en ligne. Notre nouveau site web est non seulement magnifique, mais il a également augmenté nos conversions de 40% ! Une équipe vraiment talentueuse."</p>
+                <div class="testimonial-author flex items-center">
+                  <div class="author-avatar w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                  <div class="author-info">
+                    <h4 class="font-semibold text-gray-800"> Mme Yao Marie</h4>
+                    <p class="text-sm text-gray-500">Gérante, Fashion Boutique</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-card bg-white p-6 rounded-xl shadow-md">
+                <p class="testimonial-content text-gray-600 mb-6">"Le logo et l'identité visuelle créés par Sion Digitale ont parfaitement capturé l'essence de notre marque. Leur approche créative et leur attention aux détails sont exceptionnelles."</p>
+                <div class="testimonial-author flex items-center">
+                  <div class="author-avatar w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                  <div class="author-info">
+                    <h4 class="font-semibold text-gray-800">M N'guessan</h4>
+                    <p class="text-sm text-gray-500">Fondateur, Tech Solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Section À propos -->
+        <section id="apropos" class="about py-20 bg-gradient-to-b from-blue-50 to-white">
+          <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+              <h2 class="section-title text-4xl font-bold mb-6 text-gray-800">À PROPOS DE NOUS</h2>
+              <p class="text-gray-600 mb-8">Fondée en 2025, Sion Digitale est l'agence qui transforme vos idées en puissants outils digitaux.</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Mission -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <h3 class="text-xl font-semibold mb-4 text-blue-800">Notre Mission</h3>
+                  <p class="text-gray-600">Accompagner les entreprises dans leur transformation digitale.</p>
+                </div>
+        
+                <!-- Vision -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <h3 class="text-xl font-semibold mb-4 text-blue-800">Notre Vision</h3>
+                  <p class="text-gray-600">Devenir la référence en matière de création digitale en Côte d'Ivoire et en Afrique.</p>
+                </div>
+        
+                <!-- Valeurs -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 md:col-span-2">
+                  <h3 class="text-xl font-semibold mb-4 text-blue-800">Nos Valeurs</h3>
+                  <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                      <p class="text-blue-800 font-semibold">Créativité</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                      <p class="text-blue-800 font-semibold">Excellence</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                      <p class="text-blue-800 font-semibold">Intégrité</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                      <p class="text-blue-800 font-semibold">Collaboration</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                      <p class="text-blue-800 font-semibold">Innovation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Bouton de contact -->
+              <div class="mt-12">
+                <a href="#contact" class="contact-button inline-block bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Collaborons ensemble</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Section Services détaillés -->
+        <section id="services" class="services-detailed py-16 bg-gradient-to-b from-blue-50 to-gray-100">
+          <div class="container mx-auto px-4">
+            <h2 class="section-title text-4xl font-bold mb-12 text-gray-800 text-center">NOS SERVICES EN DÉTAIL</h2>
+            <div class="services-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- Service Item 1 -->
+              <div class="service-item p-6 bg-white rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2 duration-300 flex flex-col h-full">
+                <div class="icon mb-4 text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-blue-800">Infographie & Design</h3>
+                <p class="mb-4 text-gray-600 text-sm flex-grow">Logos, affiches, flyers et designs créatifs.</p>
+                <div class="mt-auto pt-4">
+                  <a href="#contact" class="contact-button inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Demander un devis</a>
+                </div>
+              </div>
+        
+              <!-- Service Item 2 -->
+              <div class="service-item p-6 bg-white rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2 duration-300 flex flex-col h-full">
+                <div class="icon mb-4 text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-blue-800">Développement Web</h3>
+                <p class="mb-4 text-gray-600 text-sm flex-grow">Sites web modernes et solutions e-commerce.</p>
+                <div class="mt-auto pt-4">
+                  <a href="#contact" class="contact-button inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Demander un devis</a>
+                </div>
+              </div>
+        
+              <!-- Service Item 3 -->
+              <div class="service-item p-6 bg-white rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2 duration-300 flex flex-col h-full">
+                <div class="icon mb-4 text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-blue-800">Applications Mobiles</h3>
+                <p class="mb-4 text-gray-600 text-sm flex-grow">Applications Android et iOS innovantes.</p>
+                <div class="mt-auto pt-4">
+                  <a href="#contact" class="contact-button inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Demander un devis</a>
+                </div>
+              </div>
+        
+              <!-- Service Item 4 -->
+              <div class="service-item p-6 bg-white rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2 duration-300 flex flex-col h-full">
+                <div class="icon mb-4 text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-blue-800">Maintenance Informatique</h3>
+                <p class="mb-4 text-gray-600 text-sm flex-grow">Support technique et maintenance de vos systèmes.</p>
+                <div class="mt-auto pt-4">
+                  <a href="#contact" class="contact-button inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Demander un devis</a>
+                </div>
+              </div>
+        
+              <!-- Service Item 5 -->
+              <div class="service-item p-6 bg-white rounded-2xl shadow-lg transition-transform transform hover:-translate-y-2 duration-300 flex flex-col h-full">
+                <div class="icon mb-4 text-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-blue-800">Community Management</h3>
+                <p class="mb-4 text-gray-600 text-sm flex-grow">Gestion des réseaux sociaux et stratégies de contenu.</p>
+                <div class="mt-auto pt-4">
+                  <a href="#contact" class="contact-button inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Demander un devis</a>
+                </div>
+              </div>
+  
+        <!-- Service Item 6 -->
+        <div class="service-item p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300 flex flex-col h-full">
+          <div class="icon mb-4 text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0-4H3m15 0h3m-3-7a7 7 0 00-7-7m0 0a7 7 0 00-7 7m7-7v4m0-4h14m-14 0H3" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">Publicité & Voix Off</h3>
+          <p class="mb-4 text-gray-600 text-sm flex-grow">Spots publicitaires et voix off pour vidéos.</p>
+          <div class="mt-auto pt-4">
+            <a href="#contact" class="contact-button inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm w-full text-center">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="portfolio" class="portfolio py-20 bg-gradient-to-b from-blue-50 to-indigo-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="section-title text-4xl font-bold mb-4 text-gray-800">NOTRE PORTFOLIO</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Découvrez nos réalisations qui parlent pour nous</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+        <!-- Projets visibles par défaut -->
+        <div class="group portfolio-item bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" 
+                 alt="Design de logo créatif" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span class="text-white font-medium">Voir les détails →</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-indigo-800">Design de Logo</h3>
+            <p class="text-gray-600 mb-4">Identité visuelle moderne pour une startup tech</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Branding</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Illustration</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="group portfolio-item bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Site e-commerce" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span class="text-white font-medium">Voir les détails →</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-indigo-800">Plateforme E-commerce</h3>
+            <p class="text-gray-600 mb-4">Solution complète pour une boutique en ligne premium</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Développement</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">UI/UX</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">E-commerce</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="group portfolio-item bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Application mobile" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span class="text-white font-medium">Voir les détails →</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-indigo-800">Application Mobile</h3>
+            <p class="text-gray-600 mb-4">Gestion de tâches cross-platform iOS/Android</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Mobile</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">React Native</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Productivité</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projets supplémentaires (cachés par défaut) -->
+        <div class="group portfolio-item hidden more-projects bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" 
+                 alt="Site vitrine" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span class="text-white font-medium">Voir les détails →</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-indigo-800">Site Vitrine</h3>
+            <p class="text-gray-600 mb-4">Site institutionnel pour un cabinet d'avocats</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Web Design</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">WordPress</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group portfolio-item hidden more-projects bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" 
+                 alt="Application web" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span class="text-white font-medium">Voir les détails →</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-indigo-800">Application Web</h3>
+            <p class="text-gray-600 mb-4">ERP personnalisé pour PME</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">React</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Node.js</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Gestion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="group portfolio-item hidden more-projects bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+          <div class="relative overflow-hidden h-60">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" 
+                 alt="Refonte graphique" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <span class="text-white font-medium">Voir les détails →</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-indigo-800">Refonte Graphique</h3>
+            <p class="text-gray-600 mb-4">Nouvelle identité visuelle pour une marque établie</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Rebranding</span>
+              <span class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs rounded-full">Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton Voir Plus -->
+      <div class="text-center mt-12">
+        <button id="show-more-btn" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-medium hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-indigo-300/50">
+          Voir tous nos projets
+        </button>
+      </div>
+    </div>
+</section>
+
+<script>
+  document.getElementById('show-more-btn').addEventListener('click', function() {
+    // Afficher les projets cachés
+    const moreProjects = document.querySelectorAll('.more-projects');
+    moreProjects.forEach(project => {
+      project.classList.remove('hidden');
+      project.classList.add('animate-fadeIn');
+    });
+
+    // Changer le bouton en "Voir moins"
+    this.textContent = 'Voir moins';
+    this.id = 'show-less-btn';
+    
+    // Ajouter un nouveau gestionnaire d'événement
+    this.addEventListener('click', function() {
+      moreProjects.forEach(project => {
+        project.classList.add('hidden');
+        project.classList.remove('animate-fadeIn');
+      });
+      this.textContent = 'Voir tous nos projets';
+      this.id = 'show-more-btn';
+    }, { once: true }); // Ne s'exécute qu'une fois
+  });
+</script>
+
+<style>
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+  
+  <section id="contact" class="contact py-20 bg-gradient-to-b from-blue-50 to-indigo-50 relative overflow-hidden">
+    <!-- Éléments décoratifs futuristes -->
+    <div class="absolute -right-20 -top-20 w-64 h-64 bg-indigo-100 rounded-full opacity-20 mix-blend-multiply"></div>
+    <div class="absolute left-10 bottom-10 w-48 h-48 bg-purple-100 rounded-full opacity-10 mix-blend-multiply"></div>
+    <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-blue-200 opacity-10 rounded-full blur-xl"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="section-title text-4xl font-bold mb-4 text-gray-800">Contactez notre Équipe Tech</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Des solutions digitales sur mesure conçues par des experts</p>
+      </div>
+  
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <!-- Carte de contact moderne -->
+        <div class="w-full lg:w-1/2 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+          <div class="h-48 bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center relative">
+            <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="p-8 text-center">
+            <h3 class="text-2xl font-semibold mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Connectons nos Technologies</h3>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center justify-center space-x-4">
+                <div class="p-2 bg-indigo-50 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <a href="mailto:siondigitale@gmail.com?subject=Demande d'information&body=Bonjour Sion Digitale," 
+                   class="text-lg text-gray-700 hover:text-indigo-600 transition-colors font-medium">
+                  siondigitale@gmail.com
+                </a>
+              </div>
+              
+              <div class="flex items-center justify-center space-x-4">
+                <div class="p-2 bg-indigo-50 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <a href="tel:0757856785" class="text-lg text-gray-700 hover:text-indigo-600 transition-colors font-medium">
+                  075 78 56 785
+                </a>
+              </div>
+              
+              <div class="flex items-center justify-center space-x-4">
+                <div class="p-2 bg-indigo-50 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <span class="text-lg text-gray-700 font-medium">Bingerville, Feh Kesse</span>
+              </div>
+            </div>
+            
+            <div>
+              <p class="text-gray-700 mb-4 text-lg font-medium">Connectez-vous avec nous</p>
+              <div class="flex justify-center gap-5">
+                <!-- Icônes réseaux sociaux (identique à précédemment) -->
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@siondigitale" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="text-gray-800 hover:text-pink-600 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+                   aria-label="Suivez-nous sur TikTok">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                  </svg>
+                </a>
+                
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/siondigitale/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="text-pink-600 hover:text-purple-800 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+                   aria-label="Suivez-nous sur Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+                
+                <!-- Threads -->
+                <a href="https://www.threads.net/@siondigitale" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="text-gray-800 hover:text-black transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+                   aria-label="Suivez-nous sur Threads">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H6zm6 4c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm0-2c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 12c-1.4 0-2.7-.6-3.6-1.5-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0 .5.5 1.2.9 2.2.9s1.7-.3 2.2-.9c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4-.9.9-2.2 1.5-3.6 1.5z"/>
+                  </svg>
+                </a>
+                
+                <!-- Facebook -->
+                <a href="https://web.facebook.com/search/top/?q=sion%20digitale" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="text-blue-600 hover:text-blue-800 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+                   aria-label="Suivez-nous sur Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Image technologique -->
+        <div class="w-full lg:w-1/2 hidden lg:block">
+          <div class="relative h-full min-h-96 rounded-2xl overflow-hidden shadow-xl border border-gray-200 hover:shadow-2xl transition-shadow duration-300">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Interface moderne de développement web avec code et écrans" 
+                 class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 p-8 text-white">
+              <h3 class="text-2xl font-bold mb-2">Innovation Technologique</h3>
+              <p class="text-lg opacity-90">Nous transformons le code en expériences digitales exceptionnelles</p>
+            </div>
+            <!-- Élément décoratif techno -->
+            <div class="absolute top-8 right-8 w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center opacity-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Section À propos -->
+        <div class="footer-section">
+          <h3 class="text-xl font-semibold mb-4 text-blue-400">À PROPOS</h3>
+          <p class="text-gray-400">Sion Digitale est une agence digitale spécialisée dans la création de solutions web et graphiques innovantes.</p>
+        </div>
+  
+        <!-- Liens rapides -->
+        <div class="footer-section">
+          <h3 class="text-xl font-semibold mb-4 text-blue-400">LIENS RAPIDES</h3>
+          <ul class="space-y-2">
+            <li><a href="#apropos" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">À propos</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Services</a></li>
+            <li><a href="#portfolio" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Portfolio</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Informations de contact -->
+        <div class="footer-section">
+          <h3 class="text-xl font-semibold mb-4 text-blue-400">CONTACT</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400">Email: <a href="mailto:contact@siondigitale.ch" class="hover:text-blue-400 transition-colors duration-300">siondigitale@gmail.com</a></li>
+            <li class="text-gray-400">Téléphone: <a href="tel:0123456789" class="hover:text-blue-400 transition-colors duration-300">0701937579</a></li>
+            <li class="text-gray-400">Adresse: Bingerville, Feh Kesse</li>
+          </ul>
+        </div>
+  
+        <!-- Réseaux sociaux -->
+<div class="footer-section">
+  <h3 class="text-xl font-semibold mb-4 text-blue-400">SUIVEZ-NOUS</h3>
+  <div class="flex space-x-4">
+    <div class="flex items-center justify-center gap-4">
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@siondigitale" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="text-white hover:text-pink-600 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+         aria-label="Suivez-nous sur TikTok">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+        </svg>
+      </a>
+    
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/siondigitale/" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="text-white hover:text-purple-800 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+         aria-label="Suivez-nous sur Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+    
+      <!-- Threads -->
+      <a href="https://www.threads.net/@siondigitale" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="text-white hover:text-black transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+         aria-label="Suivez-nous sur Threads">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H6zm6 4c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm0-2c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 12c-1.4 0-2.7-.6-3.6-1.5-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0 .5.5 1.2.9 2.2.9s1.7-.3 2.2-.9c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4-.9.9-2.2 1.5-3.6 1.5z"/>
+        </svg>
+      </a>
+    
+      <!-- Facebook -->
+      <a href="https://web.facebook.com/search/top/?q=sion%20digitale" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="text-white hover:text-blue-800 transition-colors duration-300 p-2 rounded-full hover:bg-gray-100"
+         aria-label="Suivez-nous sur Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+  
+      <!-- Copyright -->
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Sion Digitale. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll("section");
+        const options = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            section.classList.add("fade-in");
+            observer.observe(section);
+        });
+    });
+  </script>
+</body>
+</html>
