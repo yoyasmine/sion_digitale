@@ -8,8 +8,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/joho/godotenv" // Ajout de l'importation manquante
 )
 
 // Structures de données
@@ -27,10 +25,6 @@ type TemplateData struct {
 
 func main() {
 	// Chargement des variables d'environnement
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("Aucun fichier .env trouvé - utilisation des variables système")
-	}
 
 	// Configurer les routes
 	http.HandleFunc("/", homeHandler)
